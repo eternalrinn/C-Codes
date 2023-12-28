@@ -1,0 +1,7 @@
+C:\Users\Windows\source\repos\tesestt\tesestt\obj\Debug\tesestt.csproj.AssemblyReference.cache
+C:\Users\Windows\source\repos\tesestt\tesestt\obj\Debug\tesestt.csproj.CoreCompileInputs.cache
+C:\Users\Windows\source\repos\tesestt\tesestt\bin\Debug\tesestt.exe.config
+C:\Users\Windows\source\repos\tesestt\tesestt\bin\Debug\tesestt.exe
+C:\Users\Windows\source\repos\tesestt\tesestt\bin\Debug\tesestt.pdb
+C:\Users\Windows\source\repos\tesestt\tesestt\obj\Debug\tesestt.exe
+C:\Users\Windows\source\repos\tesestt\tesestt\obj\Debug\tesestt.pdb

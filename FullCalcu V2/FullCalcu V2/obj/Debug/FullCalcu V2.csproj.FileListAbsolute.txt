@@ -1,0 +1,7 @@
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\obj\Debug\FullCalcu V2.csproj.AssemblyReference.cache
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\obj\Debug\FullCalcu V2.csproj.CoreCompileInputs.cache
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\bin\Debug\FullCalcu V2.exe.config
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\bin\Debug\FullCalcu V2.exe
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\bin\Debug\FullCalcu V2.pdb
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\obj\Debug\FullCalcu V2.exe
+C:\Users\Windows\source\repos\FullCalcu V2\FullCalcu V2\obj\Debug\FullCalcu V2.pdb
