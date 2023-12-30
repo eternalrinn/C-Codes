@@ -1,0 +1,7 @@
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\bin\Debug\Fighting but no Visuals.exe.config
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\bin\Debug\Fighting but no Visuals.exe
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\bin\Debug\Fighting but no Visuals.pdb
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\obj\Debug\Fighting but no Visuals.csproj.AssemblyReference.cache
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\obj\Debug\Fighting but no Visuals.csproj.CoreCompileInputs.cache
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\obj\Debug\Fighting but no Visuals.exe
+C:\Users\Windows\source\repos\Fighting but no Visuals\Fighting but no Visuals\obj\Debug\Fighting but no Visuals.pdb
