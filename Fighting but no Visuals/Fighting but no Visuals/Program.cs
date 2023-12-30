@@ -15,6 +15,7 @@ namespace Fighting_but_no_Visuals
             HeroPots.HP_Pots = 0;
             HeroPots.ST_Pots = 0;
             HeroPots.Gold = 0;
+            HeroPots.Cheat = 69;
             while (Nextround)
             {
                 //HERO BASE ATTRIBUTES
@@ -33,7 +34,7 @@ namespace Fighting_but_no_Visuals
                 MonsterSkills.Basic = 5;
                 MonsterSkills.FirstSkill = 10;
                 MonsterSkills.SecondSkill = 15;
-                MonsterSkills.ThirdSkill = 20;
+                MonsterSkills.ThirdSkill = 15;
                 MonsterSkills.HP = 75;
 
                 while (true)
@@ -47,7 +48,7 @@ namespace Fighting_but_no_Visuals
                         $"\n[2]Blade Surge[30 ST] " +
                         $"\n[3]Ultimate Slash[45 ST]" +
                         $"\n[B]Basic Attack[10 ST]" +
-                        $"\n\n[P] Skip Turn(+20 ST)" +
+                        $"\n\n[P]Skip Turn(+20 ST)" +
                         $"\n[Z]HP POTION[{HeroPots.HP_Pots}]" +
                         $"\n[X]STAMINA POTION[{HeroPots.ST_Pots}]");
                     string HeroTurn = Console.ReadLine();
@@ -56,37 +57,94 @@ namespace Fighting_but_no_Visuals
                         switch (HeroTurn.ToUpper())
                         {
                             case "1":
-                                Console.WriteLine("Hero uses Divine Sunderer");
-                                MonsterSkills.HP -= HeroSkills.FirstSkill;
-                                HeroSkills.Stamina -= 20;
-                                break;
-                            case "2":
-                                Console.WriteLine("Hero uses Blade Surge");
-                                MonsterSkills.HP -= HeroSkills.SecondSkill;
-                                HeroSkills.Stamina -= 30;
-                                break;
-                            case "3":
-                                Console.WriteLine("Hero uses Ultimate Slash");
-                                MonsterSkills.HP -= HeroSkills.ThirdSkill;
-                                HeroSkills.Stamina -= 45;
-                                break;
-                            case "B":
-                                if (HeroSkills.Divine_User == true)
+                                if (HeroSkills.Stamina >= 20)
                                 {
-                                    Console.WriteLine("Hero uses Divine Attack");
-                                    MonsterSkills.HP -= HeroSkills.Divine_Damage;
-                                    HeroSkills.Stamina -= 10;
+                                    Console.WriteLine("Hero uses Divine Sunderer");
+                                    MonsterSkills.HP -= HeroSkills.FirstSkill;
+                                    Thread.Sleep(500);
+                                    Console.WriteLine($"You dealth [{HeroSkills.FirstSkill}] Damage to BLACK NIGGANSTER");
+                                    HeroSkills.Stamina -= 20;
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Hero uses Basic Attack");
-                                    MonsterSkills.HP -= HeroSkills.Basic;
-                                    HeroSkills.Stamina -= 10;
+                                    Console.WriteLine("Not EnoughStamina");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    continue;
+                                }                               
+                                break;
+                            case "2":
+                                if (HeroSkills.Stamina >= 30)
+                                {
+                                    Console.WriteLine("Hero uses Blade Surge");
+                                    MonsterSkills.HP -= HeroSkills.SecondSkill;
+                                    Thread.Sleep(500);
+                                    Console.WriteLine($"You dealt [{HeroSkills.SecondSkill}] Damage to BLACK NIGGANSTER");
+                                    HeroSkills.Stamina -= 30;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Not Enough Stamina");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    continue;
                                 }
                                 break;
+                            case "3":
+                                if (HeroSkills.Stamina >= 45)
+                                {
+                                Console.WriteLine("Hero uses Ultimate Slash");
+                                MonsterSkills.HP -= HeroSkills.ThirdSkill;
+                                    Thread.Sleep(500);
+                                    Console.WriteLine($"You dealt [{HeroSkills.ThirdSkill}]Damage to BLACK NIGGANSTER");
+                                HeroSkills.Stamina -= 45;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Not Enough Stamina");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    continue;
+                                }
+                                break;
+                            case "B":
+                                if (HeroSkills.Stamina >= 10)
+                                {
+                                    if (HeroSkills.Divine_User == true)
+                                    {
+                                        Console.WriteLine("Hero uses Divine Attack");
+                                        MonsterSkills.HP -= HeroSkills.Divine_Damage;
+                                        Thread.Sleep(1000);
+                                        Console.WriteLine($"You dealt [{HeroSkills.Divine_Damage}]Damage to BLACK NIGGANSTER");
+                                        HeroSkills.Stamina -= 10;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Hero uses Basic Attack");
+                                        MonsterSkills.HP -= HeroSkills.Basic;
+                                        Thread.Sleep(1000);
+                                        Console.WriteLine($"You dealt [{HeroSkills.Basic}]]Damage to BLACK NIGGANSTER");
+                                        HeroSkills.Stamina -= 10;
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Not Enough Stamina");
+                                    Thread.Sleep(1000);
+                                    Console.Clear();
+                                    continue;
+                                }
+                                    break;
                             case "P":
                                 Console.WriteLine("Hero skips turn");
                                 HeroSkills.Stamina += 10;
+                                break;
+                            //CHEAT CODE
+                            case "1314":
+                                Console.WriteLine("You unlocked hidden cheatcode!");
+                                MonsterSkills.HP -= HeroPots.Cheat;
+                                Thread.Sleep(1000);
+                                Console.WriteLine($"You dealt [{HeroPots.Cheat}] Insane damage to BLACK NIGGANSTER");
                                 break;
                             //HP POTS
                             case "Z":
@@ -96,7 +154,6 @@ namespace Fighting_but_no_Visuals
                                     Thread.Sleep(1000);
                                     Console.Clear();
                                     continue;
-
                                 }
                                 else
                                 {
@@ -140,23 +197,52 @@ namespace Fighting_but_no_Visuals
                         case 1:
                             Console.WriteLine("Monster uses Bite");
                             HeroSkills.HP -= MonsterSkills.FirstSkill;
+                            Thread.Sleep(500);
+                            Console.WriteLine($"Bite dealt [{MonsterSkills.FirstSkill}] Damage");
                             break;
                         case 2:
                             Console.WriteLine("Monster uses Dark Slash");
                             HeroSkills.HP -= MonsterSkills.SecondSkill;
+                            Thread.Sleep(500);
+                            Console.WriteLine($"Dark Slash  dealt [{MonsterSkills.SecondSkill}] Damage");
                             break;
                         case 3:
                             Console.WriteLine("Monster uses Hydro Blast");
                             HeroSkills.HP -= MonsterSkills.ThirdSkill;
+                            Thread.Sleep(500);
+                            Console.WriteLine($"Hydro Blast dealt [{MonsterSkills.ThirdSkill}] ] Damage");
                             break;
                         case 4:
                             Console.WriteLine("Monster uses Tackle");
                             HeroSkills.HP -= MonsterSkills.Basic;
+                            Thread.Sleep(500);
+                            Console.WriteLine($"Tackle dealt [{MonsterSkills.ThirdSkill}] ] Damage");
                             break;
                     }
                     Thread.Sleep(500);
                     Console.Clear();
-                    //HERO WINS
+                    //HERO LOSES
+                    if (HeroSkills.HP <= 0)
+                    {
+                        Console.WriteLine("Hero Defeated!");
+                        Console.Clear();
+                        Console.WriteLine("Would you like to try again? : Y or N");
+                        //RESETS HERO && MONSTER ATTRIBUTES WHEN LOSE
+                        HeroSkills.HP = 100;
+                        MonsterSkills.HP = 75;
+                        HeroSkills.Stamina = 50;
+                        string try_again = Console.ReadLine();
+                        if (try_again == "Y".ToLower())
+                        {
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Thanks for playing!");
+                            Thread.Sleep(2000);
+                            break;
+                        }
+                    }
                     if (MonsterSkills.HP <= 0)
                     {
                         Console.WriteLine("Hero Wins!");
@@ -164,25 +250,29 @@ namespace Fighting_but_no_Visuals
                         Hero_Money += 25;
                         Console.WriteLine($"You earned 25 Gold, Your total Gold is {Hero_Money}");
 
-                        //RESETS HERO ATTRIBUTES EVERY WIN
-                        HeroSkills.HP = 100;
-                        HeroSkills.Stamina = 50;
+                        //ADD HERO ATTRIBUTES PER FLOOR
+                        HeroSkills.HP = 100 + (floor * 1.2);
+                        HeroSkills.Stamina = 50 + (floor * 1.2);
+                        HeroSkills.Basic = 10 + (floor * 1.2);
+                        HeroSkills.FirstSkill = 15 + (floor * 1.2);
+                        HeroSkills.SecondSkill = 20 + (floor * 1.2);
+                        HeroSkills.ThirdSkill = 45 + (floor * 1.2);
 
                         //ADDS ATTRIBUTES EVERY FLOOR TO THE MONSTER
-                        MonsterSkills.Basic = 5 + (floor * 1);
-                        MonsterSkills.FirstSkill = 10 + (floor * 2);
-                        MonsterSkills.SecondSkill = 15 + (floor * 3);
-                        MonsterSkills.ThirdSkill = 20 + (floor * 4);
-                        MonsterSkills.HP = 75 + (floor * 10);
+                        MonsterSkills.Basic = 5 + (floor * 1.3);
+                        MonsterSkills.FirstSkill = 10 + (floor * 1.3);
+                        MonsterSkills.SecondSkill = 15 + (floor * 1.3);
+                        MonsterSkills.ThirdSkill = 20 + (floor * 1.3);
+                        MonsterSkills.HP = 75 + (floor * 8);
 
                         //SHOP OR NEXT FLOOR
                         Console.WriteLine("[N]Next Floor\n[S]Shop");
                         string win = Console.ReadLine();
-                        Thread.Sleep(1000);
+                        Thread.Sleep(500);
                         Console.Clear();
                         if (win == "N".ToLower())
                         {
-                               continue;                   
+                            continue;
                         }
                         else if (win == "S".ToLower())
                         {
@@ -219,14 +309,19 @@ namespace Fighting_but_no_Visuals
                                     continue;
                                 }
                             }
-                            else if(hp_st == "3")
+                            else if (hp_st == "3")
                             {
                                 if (Hero_Money >= 150)
                                 {
+                                    Console.WriteLine("Purchased Divine Sword");
                                     Console.WriteLine("Divine Sword chose a worthy champion");
+                                    Console.WriteLine("Your basic sword transformed into Divine Sword!");
                                     HeroSkills.Divine_User = true;
+                                    Hero_Money -= 150;
+                                    Thread.Sleep(1500);
+                                    Console.Clear();
                                 }
-                                else if( Hero_Money <= 149)
+                                else if (Hero_Money <= 149)
                                 {
                                     Console.WriteLine("You don't have enough gold");
                                     Thread.Sleep(500);
@@ -245,15 +340,7 @@ namespace Fighting_but_no_Visuals
                             Console.WriteLine("Choose between the options!");
                             continue;
                         }
-                        if (HeroSkills.HP <= 0)
-                        {
-                            Console.WriteLine("Hero Defeated!");
-                            break;
-                        }
-                        Thread.Sleep(1000);
-                        Console.Clear();
                     }
-                   
 
 
                 }
@@ -275,6 +362,7 @@ namespace Fighting_but_no_Visuals
         public int Gold { get; set; }
         public int Divine_Damage { get; set; }
         public bool Divine_User { get; set; }
+        public int Cheat { get; set; }
     }
 }
 
