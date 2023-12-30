@@ -173,6 +173,7 @@ namespace Fighting_but_no_Visuals
                                 else
                                 {
                                     HeroSkills.HP += 20;
+									HeroPots.HP_Pots -= 1;
                                     Console.WriteLine($"You healed 20 HP, Total HP: {HeroSkills.HP}");
                                 }
                                 break;
@@ -188,6 +189,7 @@ namespace Fighting_but_no_Visuals
                                 else
                                 {
                                     HeroSkills.Stamina += 20;
+									HeroPots.ST_Pots -= 1;
                                     Console.WriteLine($"You gained 20 ST, Total ST: {HeroSkills.Stamina}");
                                 }
                                 break;
@@ -380,4 +382,3 @@ namespace Fighting_but_no_Visuals
         public int Cheat { get; set; }
     }
 }
-
