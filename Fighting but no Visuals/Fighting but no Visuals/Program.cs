@@ -39,18 +39,33 @@ namespace Fighting_but_no_Visuals
 
                 while (true)
                 {
-                    Console.WriteLine($"\n\tFLOOR {floor}");
-                    Console.WriteLine($"\n\tHERO\n\t{HeroSkills.HP} HP \n\t{HeroSkills.Stamina} ST\n");
-                    Console.WriteLine($"\n\tBLACK NIGGANSTER\n\t{MonsterSkills.HP}HP");
+
+
+                    Console.WriteLine("   ╔══════════════╗");
+                    Console.WriteLine($"   ║ FLOOR : {floor}    ║");
+                    Console.WriteLine("   ╚══════════════╝\n");
+
+                    Console.WriteLine("       HERO       ");
+                    Console.WriteLine("   ╔══════════════╗");
+                    Console.WriteLine($"   ║ HP: {HeroSkills.HP}      ║");
+                    Console.WriteLine($"   ║ ST: {HeroSkills.Stamina}       ║");
+                    Console.WriteLine("   ╚══════════════╝\n");
+
+                    Console.WriteLine("   BLACK NIGGANSTER  ");
+                    Console.WriteLine("   ╔══════════════╗");
+                    Console.WriteLine($"   ║ HP: {MonsterSkills.HP}       ║");
+                    Console.WriteLine("   ╚══════════════╝");
                     Console.WriteLine("\nYour turn to attack");
                     Console.WriteLine($"\nCHOOSE AN ATTACK: " +
                         $"\n[1]Divine Sunderer[20 ST] " +
                         $"\n[2]Blade Surge[30 ST] " +
                         $"\n[3]Ultimate Slash[45 ST]" +
-                        $"\n[B]Basic Attack[10 ST]" +
-                        $"\n\n[P]Skip Turn(+20 ST)" +
+                        $"\n[B]Basic Attack[10 ST]\n" +
+                        $"\nMISCELANOUS" +
+                        $"\n[P]Skip Turn(+20 ST)" +
                         $"\n[Z]HP POTION[{HeroPots.HP_Pots}]" +
                         $"\n[X]STAMINA POTION[{HeroPots.ST_Pots}]");
+                    Console.WriteLine($"\nGold : {Hero_Money}");
                     string HeroTurn = Console.ReadLine();
                     if (HeroSkills.Stamina > 10)
                     {
