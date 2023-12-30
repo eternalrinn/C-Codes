@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -182,9 +182,7 @@ namespace Fighting_but_no_Visuals
                         Console.Clear();
                         if (win == "N".ToLower())
                         {
-                            {
-                                continue;
-                            }
+                               continue;                   
                         }
                         else if (win == "S".ToLower())
                         {
