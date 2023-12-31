@@ -20,6 +20,7 @@ namespace Fighting_but_no_Visuals
             HeroPots.InfinityEdge_Buff = 1.3;
             HeroPots.BloodThirst_Lifesteal = 5;
             HeroPots.BossRound = false;
+            HeroPots.Thornmail_HP = 50;
             while (Nextround)
             {
                 //BERSERKER HERO BASE ATTRIBUTES
@@ -56,9 +57,9 @@ namespace Fighting_but_no_Visuals
                 //MONSTER BASE ATTRIBUTES
                 Skills MonsterSkills = new Skills();
                 MonsterSkills.Basic = 5;
-                MonsterSkills.FirstSkill = 8;
+                MonsterSkills.FirstSkill = 10;
                 MonsterSkills.SecondSkill = 10;
-                MonsterSkills.ThirdSkill = 10;
+                MonsterSkills.ThirdSkill = 15;
                 MonsterSkills.HP = 75;
 
                 //
@@ -716,7 +717,7 @@ namespace Fighting_but_no_Visuals
                     Thread.Sleep(500);
                     Console.Clear();
                     //HERO LOSES
-                    if (HeroSkills.HP <= 0)
+                    if (HeroSkills.HP <= 0 && HeroSkills2.HP <= 0 && HeroSkills3.HP <= 0)
                     {
                         Console.Write(@"
 ____    ____  ______    __    __      __        ______        _______. _______ 
@@ -727,12 +728,20 @@ ____    ____  ______    __    __      __        ______        _______. _______
     |__|     \______/   \______/     |_______| \______/  |_______/    |_______|
 ");
 
-                        Console.Clear();
                         Console.WriteLine("Would you like to try again? : Y or N");
+                        Thread.Sleep(500);
                         //RESETS HERO && MONSTER ATTRIBUTES WHEN LOSE
                         HeroSkills.HP = 100;
                         MonsterSkills.HP = 75;
                         HeroSkills.Stamina = 50;
+
+                        HeroSkills2.HP = 100;
+                        MonsterSkills.HP = 75;
+                        HeroSkills2.Stamina = 50;
+
+                        HeroSkills3.HP = 100;
+                        MonsterSkills.HP = 75;
+                        HeroSkills3.Stamina = 50;
                         string try_again = Console.ReadLine();
                         if (try_again == "Y".ToLower())
                         {
@@ -760,7 +769,8 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                         {
                             Console.WriteLine("You reached a Boss Stage! Careful");
                         }
-                        Hero_Money += 30;
+                        //ADDS GOLD
+                        Hero_Money += 3000;
                         Console.WriteLine($"You earned 25 Gold, Your total Gold is {Hero_Money}");
 
                         if (HeroPots.InfinityEdge_User == true)
@@ -769,7 +779,14 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                             //ADD BERSERKER STATS PER WIN
                             HeroSkills.Stamina = 60 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills.Stamina_regen = 12 + (floor * 0.4 * InfinityEdge_Multiplier);
-                            HeroSkills.HP = 120 + (floor * 0.4 * InfinityEdge_Multiplier);
+                            if (HeroPots.Thornmail_User == true)
+                            {
+                                HeroSkills.HP = 170 + (floor * 0.4);
+                            }
+                            else
+                            {
+                                HeroSkills.HP = 120 + (floor * 0.4);
+                            }
                             HeroSkills.Basic = 15 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills.FirstSkill = 25 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills.SecondSkill = 30 + (floor * 0.4 * InfinityEdge_Multiplier);
@@ -778,7 +795,14 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                             //ADD ASSASIN STATS PER WIN
                             HeroSkills2.Stamina = 50 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills2.Stamina_regen = 18 + (floor * 0.4 * InfinityEdge_Multiplier);
-                            HeroSkills2.HP = 90 + (floor * 0.4 * InfinityEdge_Multiplier);
+                            if (HeroPots.Thornmail_User == true)
+                            {
+                                HeroSkills2.HP = 140 + (floor * 0.4);
+                            }
+                            else
+                            {
+                                HeroSkills2.HP = 140 + (floor * 0.4);
+                            }
                             HeroSkills2.Basic = 18 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills2.FirstSkill = 20 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills2.SecondSkill = 35 + (floor * 0.4 * InfinityEdge_Multiplier);
@@ -787,7 +811,14 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                             //ADD MAGE STATS PER WIN
                             HeroSkills3.Stamina = 55 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills3.Stamina_regen = 15 + (floor * 0.4 * InfinityEdge_Multiplier);
-                            HeroSkills3.HP = 80 + (floor * 0.4 * InfinityEdge_Multiplier);
+                            if (HeroPots.Thornmail_User == true)
+                            {
+                                HeroSkills3.HP = 130 + (floor * 0.4);
+                            }
+                            else
+                            {
+                                HeroSkills3.HP = 130 + (floor * 0.4);
+                            }
                             HeroSkills3.Basic = 12 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills3.FirstSkill = 35 + (floor * 0.4 * InfinityEdge_Multiplier);
                             HeroSkills3.SecondSkill = 45 + (floor * 0.4 * InfinityEdge_Multiplier);
@@ -799,7 +830,14 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                             //ADD BERSERKER STATS PER WIN
                             HeroSkills.Stamina = 60 + (floor * 0.4);
                             HeroSkills.Stamina_regen = 12 + (floor * 0.4);
-                            HeroSkills.HP = 120 + (floor * 0.4);
+                            if (HeroPots.Thornmail_User == true)
+                            {
+                                HeroSkills.HP = 170 + (floor * 0.5);
+                            }
+                            else
+                            {
+                                HeroSkills.HP = 120 + (floor * 0.4);
+                            }
                             HeroSkills.Basic = 15 + (floor * 0.4);
                             HeroSkills.FirstSkill = 25 + (floor * 0.4);
                             HeroSkills.SecondSkill = 30 + (floor * 0.4);
@@ -808,7 +846,14 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                             //ADD ASSASIN STATS PER WIN
                             HeroSkills2.Stamina = 50 + (floor * 0.4);
                             HeroSkills2.Stamina_regen = 18 + (floor * 0.4);
-                            HeroSkills2.HP = 90 + (floor * 0.4);
+                            if (HeroPots.Thornmail_User == true)
+                            {
+                                HeroSkills2.HP = 140 + (floor * 0.5);
+                            }
+                            else
+                            {
+                                HeroSkills2.HP = 90 + (floor * 0.4);
+                            }
                             HeroSkills2.Basic = 18 + (floor * 0.4);
                             HeroSkills2.FirstSkill = 20 + (floor * 0.4);
                             HeroSkills2.SecondSkill = 35 + (floor * 0.4);
@@ -817,7 +862,14 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                             //ADD MAGE STATS PER WIN
                             HeroSkills3.Stamina = 55 + (floor * 0.4);
                             HeroSkills3.Stamina_regen = 15 + (floor * 0.4);
-                            HeroSkills3.HP = 80 + (floor * 0.4);
+                            if (HeroPots.Thornmail_User == true)
+                            {
+                                HeroSkills3.HP = 130 + (floor * 0.5);
+                            }
+                            else
+                            {
+                                HeroSkills3.HP = 80 + (floor * 0.4);
+                            }
                             HeroSkills3.Basic = 12 + (floor * 0.4);
                             HeroSkills3.FirstSkill = 35 + (floor * 0.4);
                             HeroSkills3.SecondSkill = 45 + (floor * 0.4);
@@ -873,6 +925,7 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                 "[5]Bloodlust Dagger : 150 Gold\n\t" +
                                 "[6]Infinity Edge : 500 Gold\n\t" +
                                 "[7]Bloodthirster : 650 Gold\n\t" +
+                                "[8]Thornmail Armor : 650 Gold\n\t" +
                                 "[X]Exit"); ;
                             string hp_st = Console.ReadLine();
                             int HP_Price = 15;
@@ -892,11 +945,15 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                     {
                                         HeroPots.HP_Pots += amount;
                                         Console.WriteLine($"You bought [{amount}] HP Potion(s)");
+                                        Console.WriteLine("-" + totalPrice);
+                                        Thread.Sleep(1000);
                                     }
                                     else
                                     {
                                         HeroPots.ST_Pots += amount;
                                         Console.WriteLine($"You bought [{amount}] Stamina Potion(s)");
+                                        Console.WriteLine("-" + totalPrice);
+                                        Thread.Sleep(1000);
                                     }
                                 }
                                 else
@@ -926,6 +983,8 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                         HeroSkills.Divine_User = true;
                                         Hero_Money -= 150;
                                         Thread.Sleep(1500);
+                                        Console.WriteLine("-" + 150);
+                                        Thread.Sleep(1000);
                                         Console.Clear();
                                     }
                                     else if (Hero_Money <= 149)
@@ -959,6 +1018,8 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                         HeroSkills.Arcane_User = true;
                                         Hero_Money -= 150;
                                         Thread.Sleep(1500);
+                                        Console.WriteLine("-" + 150);
+                                        Thread.Sleep(1000);
                                         Console.Clear();
                                     }
                                     else if (Hero_Money <= 149)
@@ -990,6 +1051,8 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                     HeroSkills.Bloodlust_User = true;
                                     Hero_Money -= 150;
                                     Thread.Sleep(1500);
+                                    Console.WriteLine("-" + 150);
+                                    Thread.Sleep(1000);
                                     Console.Clear(); 
                                 }
                                 else if (Hero_Money <= 149)
@@ -1013,9 +1076,12 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                 if (Hero_Money >= 500)
                                 {
                                     HeroPots.InfinityEdge_User = true;
+                                    Hero_Money -= 500;
                                     Console.WriteLine("You purchased INFINITY EDGE");
                                     Thread.Sleep(1000);
                                     Console.WriteLine("You gained 1.3x Universal Damage!");
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine("-" + 500);
                                     Thread.Sleep(1000);
                                     Console.Clear();
                                 }
@@ -1033,9 +1099,35 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
                                 if (Hero_Money >= 650)
                                 {
                                     HeroPots.BloodThirst_User = true;
+                                    Hero_Money -= 650;
                                     Console.WriteLine("You purchased BLOODTHIRSTER");
                                     Thread.Sleep(1000);
                                     Console.WriteLine("You 10% LifeSteal to enemies!");
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine("-" + 650);
+                                    Thread.Sleep(1000);
+                                    Console.Clear();
+                                }
+                                else if (Hero_Money <= 649)
+                                {
+                                    Console.WriteLine("You don't have enough gold");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    continue;
+                                }
+
+                            }
+                            else if (hp_st == "8")
+                            {
+                                if (Hero_Money >= 650)
+                                {
+                                    HeroPots.Thornmail_User = true;
+                                    Hero_Money -= 650;
+                                    Console.WriteLine("You purchased THORNMAIL");
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine("You gained Extra 50 HP + 10% PER ROUND [APPLIES NEXT ROUND]");
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine("-" + 650);
                                     Thread.Sleep(1000);
                                     Console.Clear();
                                 }
@@ -1087,6 +1179,8 @@ ____    ____  ______    __    __     ____    __    ____  __  .__   __.
         public bool BloodThirst_User { get; set; }
         public double  BloodThirst_Lifesteal { get; set; }
         public bool BossRound { get; set; }
+        public bool Thornmail_User { get; set; }
+        public double Thornmail_HP { get; set; }
     }
 }
 
