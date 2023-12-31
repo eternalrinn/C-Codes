@@ -19,6 +19,7 @@ namespace Fighting_but_no_Visuals
             HeroPots.Cheat = 1000000;
             HeroPots.InfinityEdge_Buff = 1.3;
             HeroPots.BloodThirst_Lifesteal = 5;
+            HeroPots.BossRound = false;
             while (Nextround)
             {
                 //BERSERKER HERO BASE ATTRIBUTES
@@ -114,9 +115,18 @@ namespace Fighting_but_no_Visuals
               
                 while (true)
                 {
-                    Console.WriteLine("   ╔══════════════╗");
-                    Console.WriteLine($"   ║ FLOOR : {floor}    ║");
-                    Console.WriteLine("   ╚══════════════╝\n");
+                    if (HeroPots.BossRound == true)
+                    {
+                        Console.WriteLine("   ╔════════════════════╗");
+                        Console.WriteLine($"   ║ BOSS STAGE : {floor}     ║");
+                        Console.WriteLine("   ╚════════════════════╝\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("   ╔══════════════╗");
+                        Console.WriteLine($"   ║ FLOOR : {floor}    ║");
+                        Console.WriteLine("   ╚══════════════╝\n");
+                    }
                     //IF CLASS = BERSERKER
                     if (User_Class == "1")
                     {
@@ -708,7 +718,15 @@ namespace Fighting_but_no_Visuals
                     //HERO LOSES
                     if (HeroSkills.HP <= 0)
                     {
-                        Console.WriteLine("Hero Defeated!");
+                        Console.Write(@"
+____    ____  ______    __    __      __        ______        _______. _______ 
+\   \  /   / /  __  \  |  |  |  |    |  |      /  __  \      /       ||   ____|
+ \   \/   / |  |  |  | |  |  |  |    |  |     |  |  |  |    |   (----`|  |__   
+  \_    _/  |  |  |  | |  |  |  |    |  |     |  |  |  |     \   \    |   __|  
+    |  |    |  `--'  | |  `--'  |    |  `----.|  `--'  | .----)   |   |  |____ 
+    |__|     \______/   \______/     |_______| \______/  |_______/    |_______|
+");
+
                         Console.Clear();
                         Console.WriteLine("Would you like to try again? : Y or N");
                         //RESETS HERO && MONSTER ATTRIBUTES WHEN LOSE
@@ -729,13 +747,20 @@ namespace Fighting_but_no_Visuals
                     }
                     if (MonsterSkills.HP <= 0)
                     {
-                        Console.WriteLine("Hero Wins!");
+                        Console.Write(@"
+____    ____  ______    __    __     ____    __    ____  __  .__   __. 
+\   \  /   / /  __  \  |  |  |  |    \   \  /  \  /   / |  | |  \ |  | 
+ \   \/   / |  |  |  | |  |  |  |     \   \/    \/   /  |  | |   \|  | 
+  \_    _/  |  |  |  | |  |  |  |      \            /   |  | |  . `  | 
+    |  |    |  `--'  | |  `--'  |       \    /\    /    |  | |  |\   | 
+    |__|     \______/   \______/         \__/  \__/     |__| |__| \__| 
+");
                         floor++;
                         if (floor % 5 == 0)
                         {
                             Console.WriteLine("You reached a Boss Stage! Careful");
                         }
-                        Hero_Money += 2500;
+                        Hero_Money += 30;
                         Console.WriteLine($"You earned 25 Gold, Your total Gold is {Hero_Money}");
 
                         if (HeroPots.InfinityEdge_User == true)
@@ -799,22 +824,34 @@ namespace Fighting_but_no_Visuals
                             HeroSkills3.ThirdSkill = 60 + (floor * 0.4);
                             HeroSkills3.Arcane_Damage = 25 + (floor * 0.4);
                         }                   
-
-
-                        //ADDS ATTRIBUTES EVERY FLOOR TO THE MONSTER
-                        MonsterSkills.Basic = 5 + (floor * 0.3);
-                        MonsterSkills.FirstSkill = 10 + (floor * 0.3);
-                        MonsterSkills.SecondSkill = 15 + (floor * 0.3);
-                        MonsterSkills.ThirdSkill = 10 + (floor * 0.3);
-                        MonsterSkills.HP = 75 + (floor * 5);
+                        //BOSS ROUND
                         if (floor % 5 == 0)
                         {
-                            Console.WriteLine("BOSS STAGE!");
+                            HeroPots.BossRound = true;
+                            Console.Write(@"
+.______     ______        _______.     _______.        _______.___________.    ___       _______  _______ 
+|   _  \   /  __  \      /       |    /       |       /       |           |   /   \     /  _____||   ____|
+|  |_)  | |  |  |  |    |   (----`   |   (----`      |   (----`---|  |----`  /  ^  \   |  |  __  |  |__   
+|   _  <  |  |  |  |     \   \        \   \           \   \       |  |      /  /_\  \  |  | |_ | |   __|  
+|  |_)  | |  `--'  | .----)   |   .----)   |      .----)   |      |  |     /  _____  \ |  |__| | |  |____ 
+|______/   \______/  |_______/    |_______/       |_______/       |__|    /__/     \__\ \______| |_______|
+");
+
                             MonsterSkills.Basic = 5 + (floor * 1.5);
                             MonsterSkills.FirstSkill = 10 + (floor * 1.5);
                             MonsterSkills.SecondSkill = 15 + (floor * 1.5);
                             MonsterSkills.ThirdSkill = 10 + (floor * 1.5);
                             MonsterSkills.HP = 75 + (floor * 10);
+                        }
+                        else
+                        {
+                            HeroPots.BossRound = false;
+                            //ADDS ATTRIBUTES EVERY FLOOR TO THE MONSTER
+                            MonsterSkills.Basic = 5 + (floor * 0.3);
+                            MonsterSkills.FirstSkill = 10 + (floor * 0.3);
+                            MonsterSkills.SecondSkill = 15 + (floor * 0.3);
+                            MonsterSkills.ThirdSkill = 10 + (floor * 0.3);
+                            MonsterSkills.HP = 75 + (floor * 5);
                         }
 
                         //SHOP OR NEXT FLOOR
@@ -1049,6 +1086,7 @@ namespace Fighting_but_no_Visuals
         public bool InfinityEdge_User { get; set; }
         public bool BloodThirst_User { get; set; }
         public double  BloodThirst_Lifesteal { get; set; }
+        public bool BossRound { get; set; }
     }
 }
 
