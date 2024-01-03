@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,7 +12,8 @@ namespace FullCalcu_V2
     {
         static void Main(string[] args)
         {
-            while (true)
+            bool contiee = true;
+            while (contiee == true)
             {
                 double x, y;
                 string ops, again;
@@ -23,6 +24,8 @@ namespace FullCalcu_V2
                 catch
                 {
                     Console.WriteLine("Numbers only!");
+                    Thread.Sleep(500);
+                    Console.Clear();
                     continue;
                 }
                 do
@@ -33,24 +36,31 @@ namespace FullCalcu_V2
                     }
                     catch
                     {
-                        Console.WriteLine("1-4 Only");
+                        Console.WriteLine($"1-4 Only");
+                        Thread.Sleep(500);
+                        Console.Clear();
                         continue;
                     }
                     break;
                 }
 
-
                 while (true);
-                Console.WriteLine("Would you like to exit? Y or N");
-                again = Console.ReadLine().ToLower();
-
-                if (again == "Y")
+                Console.WriteLine("Would you like to continue? Y or N");
+                string answer = Console.ReadLine();
+                if (answer == "Y".ToLower())
+                {
+                    contiee = true;
+                }
+                else if (answer == "N".ToLower())
                 {
                     Console.WriteLine("Thanks for using the program!");
-                    break;
+                    Thread.Sleep(1000);
+                    contiee = false;
                 }
-                Console.Clear();    
+                Console.Clear();
+
             }
+
 
         }
         private static void InputTwoNum(out double x, out double y)
