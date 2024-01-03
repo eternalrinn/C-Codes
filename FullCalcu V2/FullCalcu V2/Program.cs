@@ -72,9 +72,9 @@ namespace FullCalcu_V2
         }
         private static void ChooseOperator(out string ops, double x, double y)
         {
-            Console.WriteLine("CHOOSE AN OPERATOR [1-4]\n\t1.[+]ADDITION\n\t2.[-]SUBTRACTION\n\t3.[*]MULTIPLICATION\n\t4.[/]DIVISION");
+            Console.WriteLine("CHOOSE AN OPERATOR [1-4]\n\t1.[+]ADDITION\n\t2.[-]SUBTRACTION\n\t3.[*]MULTIPLICATION\n\t4.[/]DIVISION\n\t5.[%]PERCENTAGE");
             ops = Console.ReadLine();
-            if (ops != "1" && ops != "2" && ops != "3" && ops != "4") 
+            if (ops != "1" && ops != "2" && ops != "3" && ops != "4" && ops != "5")
             {
                 throw new InvalidOperationException();
             }
@@ -99,6 +99,11 @@ namespace FullCalcu_V2
                         Console.WriteLine("\tCannot divide by zero!");
                     }
                     break;
+                case "5":
+                    {
+                        Console.WriteLine("\tAnswer: " + (x / y) * 100 + "%");
+                        break;
+                    }
                 default:
                     Console.WriteLine("1-4 ONLY");
                     break;
