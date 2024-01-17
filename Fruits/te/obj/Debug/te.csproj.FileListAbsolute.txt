@@ -1,0 +1,7 @@
+C:\Users\Windows\source\repos\te\te\bin\Debug\te.exe.config
+C:\Users\Windows\source\repos\te\te\bin\Debug\te.exe
+C:\Users\Windows\source\repos\te\te\bin\Debug\te.pdb
+C:\Users\Windows\source\repos\te\te\obj\Debug\te.csproj.AssemblyReference.cache
+C:\Users\Windows\source\repos\te\te\obj\Debug\te.csproj.CoreCompileInputs.cache
+C:\Users\Windows\source\repos\te\te\obj\Debug\te.exe
+C:\Users\Windows\source\repos\te\te\obj\Debug\te.pdb
