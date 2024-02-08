@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(12, 12, 12);
+}
+
+nav{
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.navlogo{
+    max-width: 175px;
+}
+
+.couple{
+    margin-left: 40rem;
+    margin-top: -15rem;
+    opacity: 40%;
+    max-width: 600px;
+}
+.navlinks{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.link a{
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: white;
+}
+
+.link a:after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e44059;
+    transition: all 0.3s ease;
+}
+
+.link a:hover::after{
+    width: 75%;
+}
+
+.btn{
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #e44059;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: all 0.3s ease;
+}
+
+.btn:hover{
+    background-color: #e73333
+}
+
+.container{
+  max-width: 1200px;
+  margin: auto;
+}
+
+header{
+    padding-left: 3rem;
+    color: white;
+}
+header h1{
+    max-width: 450px;
+}
+.kyle{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+header p{
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+}
+.v{
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.val{
+    color: #e44059;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.btnchat{
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background-color: #e44059;
+}
+
+.btnchat a{
+    color: white;
+}
+.btnchat:hover{
+    background-color: #e73333;
+}
+
+.sgift{
+    color: #e44059;
+}
+
+section .valhead{
+    margin-top: 24rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.cards {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 130px 50px 130px;
+    gap: 2rem;
+}
+
+.cards .card {
+    cursor: pointer;
+    flex: 1;
+    max-width: 300px; 
+    background-color: #1b1b1b;
+    border-bottom: 5px solid #e44059;
+    margin-top: 100px;
+    padding: 60px 40px 100px 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards .card:hover{
+    outline: 3px solid #e44059;
+    transition: all 0.3s ease;
+}
+.cards .card h3 {
+    color:#ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cards .card p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.valbtn{
+    cursor: pointer;
+    background-color: #e44059;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    font-size: 1rem;
+}
+
+.valbtn:hover{
+    outline: 1px solid white;
+    transition: 0.3s ease;
+}
+
+.flower{
+    margin: 3rem 0 4.5rem 0;
+    width: 150px;
+}
+
+.bear{
+    margin: 3rem 0 4.5rem 0;
+    width: 150px;
+}
+
+.choco{
+    margin: 3rem 0 6rem 0;
+    width: 150px;
+}
+
+.hoodie{
+    margin: 3rem 0 3rem 0;
+    width: 200px;
+}
+
+.gir{
+    width: 250px;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    border-radius: 125px;
+}
+
+.cards .card .su{
+    color: #e44059;
+}
+
